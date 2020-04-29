@@ -7,6 +7,7 @@ const initialState = {
   newConfirmed: '',
   newDeaths: '',
   dangerRank: '',
+  countries: [],
 };
 
 export default function (state = initialState, action) {

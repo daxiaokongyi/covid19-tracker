@@ -1,15 +1,22 @@
 import { COUNTRY_CUMULATIVE } from './types';
 import axios from 'axios';
-import { urlCountry } from '../apis/config';
+import { urlCountry, urlForSelection } from '../apis/config';
 
-const countryCumulative = () => async (dispatch) => {
+const countryCumulative = (country) => async (dispatch) => {
   try {
+    console.log(country);
     const {
       data: { countrydata },
-    } = await axios.get(urlCountry);
+    } = await axios.get(`${urlCountry}=us`);
     // console.log(countrydata[0]);
 
     const resultCountryData = countrydata[0];
+
+    // get countries only
+    const {
+      data: { countries },
+    } = await axios(urlForSelection);
+    console.log(countries);
 
     const customizedCountryData = {
       confirmed: resultCountryData.total_cases,
@@ -18,9 +25,10 @@ const countryCumulative = () => async (dispatch) => {
       newConfirmed: resultCountryData.total_new_cases_today,
       newDeaths: resultCountryData.total_new_deaths_today,
       dangerRank: resultCountryData.total_danger_rank,
+      countries,
     };
 
-    console.log(customizedCountryData);
+    // console.log(customizedCountryData);
 
     dispatch({
       type: COUNTRY_CUMULATIVE,
