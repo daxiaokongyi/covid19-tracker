@@ -7,7 +7,7 @@ const countryCumulative = (country) => async (dispatch) => {
     console.log(country);
     const {
       data: { countrydata },
-    } = await axios.get(`${urlCountry}=us`);
+    } = await axios.get(`${urlCountry}=${country}`);
     // console.log(countrydata[0]);
 
     const resultCountryData = countrydata[0];

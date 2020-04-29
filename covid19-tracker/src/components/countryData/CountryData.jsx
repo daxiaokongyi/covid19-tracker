@@ -16,21 +16,22 @@ const CountryData = ({
     dangerRank,
     countries,
   },
-  updateCountry,
+  updateCountry: { country },
   countryCumulative,
   selectCountry,
 }) => {
   useEffect(() => {
     const getCountryData = async () => {
-      countryCumulative();
+      countryCumulative(country);
     };
     getCountryData();
   }, [countryCumulative]);
 
   const onHandleChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     selectCountry(e.target.value);
-    console.log(updateCountry);
+    // console.log(country);
+    countryCumulative(e.target.value);
   };
 
   return (
@@ -112,6 +113,7 @@ CountryData.propTypes = {
   countryCumulative: PropTypes.func.isRequired,
   selectCountry: PropTypes.func.isRequired,
   CountryData: PropTypes.object.isRequired,
+  updateCountry: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
