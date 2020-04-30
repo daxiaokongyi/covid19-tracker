@@ -20,6 +20,7 @@ const CountryData = ({
     dangerRank,
     countries,
     country,
+    population,
   },
   countryCumulative,
   countryTimeline,
@@ -29,7 +30,7 @@ const CountryData = ({
   useEffect(() => {
     const getCountryData = async () => {
       countryCumulative(country);
-      getCountryPopulation();
+      getCountryPopulation(country);
     };
     getCountryData();
   }, [countryCumulative, getCountryPopulation, country]);
@@ -37,7 +38,8 @@ const CountryData = ({
   const onHandleChange = (e) => {
     // console.log(e.target.value.split(','));
     // console.log(e.target.value.split(',')[1]);
-    // getCountryPopulation();
+    getCountryPopulation(e.target.value.split(',')[0]);
+    // console.log()
     countryCumulative(e.target.value.split(',')[0]);
     clearCountryTimeline();
     countryTimeline(e.target.value.split(',')[1]);
@@ -60,6 +62,11 @@ const CountryData = ({
             ))}
           </select>
         </div>
+
+        <div>
+          population:{' '}
+          {population.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+        </div>
         <div>
           <img
             src={`https://www.countryflags.io/${country}/shiny/64.png`}
@@ -80,6 +87,8 @@ const CountryData = ({
               separator={', '}
             />
           </h2>
+          <h4>Confirmed per 10000 people </h4>
+          <h2>{((confirmed / population) * 10000).toFixed(0)}</h2>
           <h4>New cases</h4>
           <h2>
             {' '}
@@ -90,6 +99,8 @@ const CountryData = ({
               separator={', '}
             />
           </h2>
+          <h4>New Cases rate </h4>
+          <h2>{`${((newConfirmed / confirmed) * 100).toFixed(2)}%`}</h2>
         </div>
         <div className={[styles.box, styles.recovered].join(' ')}>
           <h4>Recovered</h4>
@@ -102,8 +113,8 @@ const CountryData = ({
               separator={', '}
             />
           </h2>
-          <h4>New cases</h4>
-          <h2>------------</h2>
+          <h4>Recovered per 10000 people </h4>
+          <h2>{((recovered / population) * 10000).toFixed(0)}</h2>
         </div>
         <div className={[styles.box, styles.deaths].join(' ')}>
           <h4>Deaths</h4>
@@ -111,6 +122,8 @@ const CountryData = ({
             {' '}
             <CountUp start={0} end={deaths} duration={2.5} separator={', '} />
           </h2>
+          <h4>Deaths per 10000 people </h4>
+          <h2>{((deaths / population) * 10000).toFixed(0)}</h2>
           <h4>New cases</h4>
           <h2>
             {' '}
@@ -121,6 +134,8 @@ const CountryData = ({
               separator={', '}
             />
           </h2>
+          <h4>new cases rate</h4>
+          <h2>{`${((newDeaths / deaths) * 100).toFixed(2)}%`}</h2>
         </div>
       </div>
     </div>

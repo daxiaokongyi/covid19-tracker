@@ -1,4 +1,5 @@
 import { COUNTRY_CUMULATIVE } from '../actions/types';
+import { GET_POPULATION } from '../actions/types';
 
 const initialState = {
   confirmed: '',
@@ -9,7 +10,7 @@ const initialState = {
   dangerRank: '',
   countries: [],
   country: 'US',
-  population: 100,
+  population: '',
 };
 
 export default function (state = initialState, action) {
@@ -21,6 +22,8 @@ export default function (state = initialState, action) {
         ...state,
         ...payload,
       };
+    case GET_POPULATION:
+      return { ...state, population: payload };
     default:
       return state;
   }
