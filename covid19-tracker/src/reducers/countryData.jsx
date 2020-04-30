@@ -8,6 +8,7 @@ const initialState = {
   newDeaths: '',
   dangerRank: '',
   countries: [],
+  country: 'US',
 };
 
 export default function (state = initialState, action) {

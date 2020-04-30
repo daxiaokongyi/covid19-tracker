@@ -4,7 +4,7 @@ import { urlCountry, urlForSelection } from '../apis/config';
 
 const countryCumulative = (country) => async (dispatch) => {
   try {
-    console.log(country);
+    // console.log(country);
     const {
       data: { countrydata },
     } = await axios.get(`${urlCountry}=${country}`);
@@ -16,7 +16,7 @@ const countryCumulative = (country) => async (dispatch) => {
     const {
       data: { countries },
     } = await axios(urlForSelection);
-    console.log(countries);
+    // console.log(countries);
 
     const customizedCountryData = {
       confirmed: resultCountryData.total_cases,
@@ -26,6 +26,7 @@ const countryCumulative = (country) => async (dispatch) => {
       newDeaths: resultCountryData.total_new_deaths_today,
       dangerRank: resultCountryData.total_danger_rank,
       countries,
+      country,
     };
 
     // console.log(customizedCountryData);

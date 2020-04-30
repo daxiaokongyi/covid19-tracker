@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import styles from './CountryData.module.css';
 import countryCumulative from '../../actions/countryCumulative';
-import selectCountry from '../../actions/selectCountry';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CountUp from 'react-countup';
+import Spinner from '../spinner/Spinner';
 
 const CountryData = ({
   countryData: {
@@ -15,38 +15,45 @@ const CountryData = ({
     newDeaths,
     dangerRank,
     countries,
+    country,
   },
-  updateCountry: { country },
   countryCumulative,
-  selectCountry,
 }) => {
   useEffect(() => {
     const getCountryData = async () => {
       countryCumulative(country);
     };
     getCountryData();
-  }, [countryCumulative]);
+  }, [countryCumulative, country]);
 
   const onHandleChange = (e) => {
     // console.log(e.target.value);
-    selectCountry(e.target.value);
     // console.log(country);
     countryCumulative(e.target.value);
   };
 
-  return (
+  return !confirmed ? (
+    <Spinner />
+  ) : (
     <div className={styles.container}>
       <div className={styles.countryRank}>
         <div>
           {' '}
           Select Country:{''}
-          <select onChange={(e) => onHandleChange(e)}>
+          <select name='countries' onChange={(e) => onHandleChange(e)}>
+            <option value='us'>US</option>
             {countries.map(({ name, iso2 }, i) => (
               <option value={iso2} key={i}>
                 {name}
               </option>
             ))}
           </select>
+        </div>
+        <div>
+          <img
+            src={`https://www.countryflags.io/${country}/shiny/64.png`}
+            alt='flag-img'
+          />
         </div>
         <div>Danger Rank: {dangerRank}</div>
       </div>
@@ -113,14 +120,10 @@ CountryData.propTypes = {
   countryCumulative: PropTypes.func.isRequired,
   selectCountry: PropTypes.func.isRequired,
   CountryData: PropTypes.object.isRequired,
-  updateCountry: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   countryData: state.countryData,
-  updateCountry: state.updateCountry,
 });
 
-export default connect(mapStateToProps, { countryCumulative, selectCountry })(
-  CountryData
-);
+export default connect(mapStateToProps, { countryCumulative })(CountryData);

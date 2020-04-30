@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import globalCumulative from '../../actions/globalCumulative';
 import PropTypes from 'prop-types';
 import CountUp from 'react-countup';
+import Spinner from '../spinner/Spinner';
 
 const GlobalData = ({
   globalData: { confirmed, recovered, deaths, newConfirmed, newDeaths },
@@ -16,7 +17,9 @@ const GlobalData = ({
     getGlobalData();
   }, [globalCumulative]);
 
-  return (
+  return !confirmed ? (
+    <Spinner />
+  ) : (
     <div className={styles.container}>
       <div>Last Update: {new Date().toDateString()}</div>
       <div className={styles.box}>

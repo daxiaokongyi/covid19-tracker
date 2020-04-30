@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import globalData from './globalData';
 import countryData from './countryData';
-import updateCountry from './updateCountry';
+import globalDaily from './globalDaily';
 
 export default combineReducers({
   globalData,
   countryData,
-  updateCountry,
+  globalDaily,
 });
