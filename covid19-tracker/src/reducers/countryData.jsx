@@ -9,6 +9,7 @@ const initialState = {
   dangerRank: '',
   countries: [],
   country: 'US',
+  population: 100,
 };
 
 export default function (state = initialState, action) {

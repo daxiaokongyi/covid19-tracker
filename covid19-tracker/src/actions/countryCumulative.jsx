@@ -15,7 +15,7 @@ const countryCumulative = (country) => async (dispatch) => {
     // get countries only
     const {
       data: { countries },
-    } = await axios(urlForSelection);
+    } = await axios.get(urlForSelection);
     // console.log(countries);
 
     const customizedCountryData = {

@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import styles from './CountryData.module.css';
 import countryCumulative from '../../actions/countryCumulative';
+import countryTimeline from '../../actions/countryTimeline';
+import clearCountryTimeline from '../../actions/clearCountryTimeline';
+import getCountryPopulation from '../../actions/getCountryPopulation';
+
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CountUp from 'react-countup';
@@ -18,18 +22,25 @@ const CountryData = ({
     country,
   },
   countryCumulative,
+  countryTimeline,
+  clearCountryTimeline,
+  getCountryPopulation,
 }) => {
   useEffect(() => {
     const getCountryData = async () => {
       countryCumulative(country);
+      getCountryPopulation();
     };
     getCountryData();
-  }, [countryCumulative, country]);
+  }, [countryCumulative, getCountryPopulation, country]);
 
   const onHandleChange = (e) => {
-    // console.log(e.target.value);
-    // console.log(country);
-    countryCumulative(e.target.value);
+    // console.log(e.target.value.split(','));
+    // console.log(e.target.value.split(',')[1]);
+    // getCountryPopulation();
+    countryCumulative(e.target.value.split(',')[0]);
+    clearCountryTimeline();
+    countryTimeline(e.target.value.split(',')[1]);
   };
 
   return !confirmed ? (
@@ -40,10 +51,10 @@ const CountryData = ({
         <div>
           {' '}
           Select Country:{''}
-          <select name='countries' onChange={(e) => onHandleChange(e)}>
+          <select onChange={(e) => onHandleChange(e)}>
             <option value='us'>US</option>
             {countries.map(({ name, iso2 }, i) => (
-              <option value={iso2} key={i}>
+              <option value={[iso2, name]} key={i}>
                 {name}
               </option>
             ))}
@@ -119,6 +130,8 @@ const CountryData = ({
 CountryData.propTypes = {
   countryCumulative: PropTypes.func.isRequired,
   selectCountry: PropTypes.func.isRequired,
+  clearCountryTimeline: PropTypes.func.isRequired,
+  getCountryPopulation: PropTypes.func.isRequired,
   CountryData: PropTypes.object.isRequired,
 };
 
@@ -126,4 +139,9 @@ const mapStateToProps = (state) => ({
   countryData: state.countryData,
 });
 
-export default connect(mapStateToProps, { countryCumulative })(CountryData);
+export default connect(mapStateToProps, {
+  countryCumulative,
+  countryTimeline,
+  clearCountryTimeline,
+  getCountryPopulation,
+})(CountryData);

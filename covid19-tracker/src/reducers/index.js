@@ -2,9 +2,11 @@ import { combineReducers } from 'redux';
 import globalData from './globalData';
 import countryData from './countryData';
 import globalDaily from './globalDaily';
+import countryDaily from './countryDaily';
 
 export default combineReducers({
   globalData,
   countryData,
   globalDaily,
+  countryDaily,
 });

@@ -1,6 +1,6 @@
 .container {
   border: solid 1px blue;
-  border-radius: 0.2rem;
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

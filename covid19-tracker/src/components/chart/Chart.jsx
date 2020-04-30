@@ -1,22 +1,29 @@
 import React, { useEffect } from 'react';
 import globalTimeline from '../../actions/globalTimeline';
+import countryTimeline from '../../actions/countryTimeline';
 import { connect } from 'react-redux';
 import styles from './Chart.module.css';
 import { Line } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
 import Spinner from '../spinner/Spinner';
 
-const Chart = ({ globalDaily, globalTimeline }) => {
+const Chart = ({
+  globalDaily,
+  countryDaily,
+  globalTimeline,
+  countryTimeline,
+}) => {
   useEffect(() => {
-    const getGlobalTimeline = async () => {
+    const Timeline = async () => {
       // console.log('triggered');
       globalTimeline();
+      countryTimeline();
     };
-    getGlobalTimeline();
-  }, [globalTimeline]);
+    Timeline();
+  }, [globalTimeline, countryTimeline]);
 
   // !globalDaily.length && console.log(globalDaily);
-  console.log(globalDaily);
+  // console.log(globalDaily);
 
   const lineChartGlobal = (
     <Line
@@ -33,7 +40,7 @@ const Chart = ({ globalDaily, globalTimeline }) => {
             data: globalDaily.map(({ deaths }) => deaths),
             label: 'Deaths',
             borderColor: 'red',
-            fill: false,
+            fill: true,
           },
         ],
       }}
@@ -43,16 +50,22 @@ const Chart = ({ globalDaily, globalTimeline }) => {
   const lineChartCountry = (
     <Line
       data={{
-        labels: globalDaily.map(({ reportDate }) => reportDate),
+        labels: countryDaily.map(({ date }) => date),
         datasets: [
           {
-            data: globalDaily.map(({ confirmed }) => confirmed),
+            data: countryDaily.map(({ confirmed }) => confirmed),
             label: 'Confimred',
             borderColor: 'blue',
             fill: true,
           },
           {
-            data: globalDaily.map(({ deaths }) => deaths),
+            data: countryDaily.map(({ recovered }) => recovered),
+            label: 'Recovered',
+            borderColor: 'green',
+            fill: true,
+          },
+          {
+            data: countryDaily.map(({ deaths }) => deaths),
             label: 'Deaths',
             borderColor: 'red',
             fill: false,
@@ -62,16 +75,27 @@ const Chart = ({ globalDaily, globalTimeline }) => {
     />
   );
 
-  return <div className={styles.container}>{lineChartGlobal}</div>;
+  return (
+    <div className={styles.container}>
+      {lineChartGlobal}
+      {lineChartCountry}
+    </div>
+  );
 };
 
 Chart.propTypes = {
   globalTimeline: PropTypes.func.isRequired,
-  globalDaily: PropTypes.object.isRequired,
+  countryTimeline: PropTypes.func.isRequired,
+  globalDaily: PropTypes.array.isRequired,
+  countryDaily: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   globalDaily: state.globalDaily,
+  countryDaily: state.countryDaily,
 });
 
-export default connect(mapStateToProps, { globalTimeline })(Chart);
+export default connect(mapStateToProps, {
+  globalTimeline,
+  countryTimeline,
+})(Chart);

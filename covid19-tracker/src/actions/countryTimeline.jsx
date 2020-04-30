@@ -2,29 +2,31 @@ import { COUNTRY_TIMELINE } from './types';
 import axios from 'axios';
 import { urlDailyCountry } from '../apis/config';
 
-const countryTimeline = () => async (dispatch) => {
+const countryTimeline = (country) => async (dispatch) => {
   try {
     const { data } = await axios.get(urlDailyCountry);
 
-    // console.log(data);
+    // console.log(data[country]);
+    country = !country ? 'US' : country;
 
-    const customizedGlobalTimeline = data.map(
-      ({ confirmed, deaths, reportDate }) => ({
-        confirmed: confirmed.total,
-        deaths: deaths.total,
-        reportDate: reportDate,
+    const customizedCountryTimeline = data[country].map(
+      ({ confirmed, recovered, deaths, date }) => ({
+        confirmed,
+        recovered,
+        deaths,
+        date,
       })
     );
 
-    // console.log(customizedGlobalTimeline);
+    // console.log(customizedCountryTimeline);
 
     dispatch({
       type: COUNTRY_TIMELINE,
-      payload: customizedGlobalTimeline,
+      payload: customizedCountryTimeline,
     });
   } catch (err) {
     console.log(err);
   }
 };
 
-export default globalTimeline;
+export default countryTimeline;
