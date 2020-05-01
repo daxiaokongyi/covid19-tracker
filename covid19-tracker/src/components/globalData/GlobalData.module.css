@@ -1,14 +1,30 @@
 /* primary-color: #FF6701  */
 
 .container {
-  border: 1px solid blue;
+  /* border: 0.3rem solid #ff6701; */
   border-radius: 0.5rem;
-  padding: 1rem;
-  background: #ff6701;
+  /* padding: 1rem; */
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.8);
   opacity: 0.9;
 }
 
-.box {
+.header {
+  line-height: 1.8rem;
+  text-align: center;
+  margin: 1rem 0 0 0;
+  padding: 0.6rem 0 0 0;
+  /* border: 1px solid blue; */
+  border-radius: 0.5rem;
+}
+
+.update {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.global {
   display: flex;
   justify-content: space-evenly;
   padding: 1rem;
@@ -16,6 +32,44 @@
 
 .boxContent {
   display: flex;
-  justify-content: space-evenly;
-  padding: 0.2rem;
+  flex-direction: column;
+  line-height: 1.5rem;
+  text-align: left;
+  /* border: 1px solid blue; */
+  border-radius: 0.3rem;
+  padding: 1rem;
+}
+
+.cumulative {
+  border: 0.05rem solid blue;
+  background-color: rgb(0, 0, 255, 0.1);
+}
+
+.newCases {
+  border: 0.05rem solid red;
+  background-color: rgb(255, 0, 0, 0.1);
+}
+
+i {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+/* responsive  */
+@media (max-width: 360px) {
+  .container {
+    font-size: 0.5rem;
+  }
+
+  .global {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1rem;
+  }
+
+  .boxContent {
+    margin: 0.2rem 0;
+    text-align: center;
+  }
 }

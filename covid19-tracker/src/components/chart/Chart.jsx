@@ -44,6 +44,25 @@ const Chart = ({
           },
         ],
       }}
+      options={{
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                callback: function (label, index, labels) {
+                  if (label > 999999) {
+                    return label / 1000000 + ' M';
+                  } else if (label > 1000 && label < 1000000) {
+                    return label / 1000 + ' K';
+                  } else {
+                    return label;
+                  }
+                },
+              },
+            },
+          ],
+        },
+      }}
     />
   );
 
@@ -72,13 +91,36 @@ const Chart = ({
           },
         ],
       }}
+      options={{
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                callback: function (label, index, labels) {
+                  if (label > 999999) {
+                    return label / 1000000 + ' M';
+                  } else if (label > 1000 && label < 1000000) {
+                    return label / 1000 + ' K';
+                  } else {
+                    return label;
+                  }
+                },
+              },
+            },
+          ],
+        },
+      }}
     />
   );
 
-  return (
+  return !globalDaily[0] && !countryDaily[0] ? (
+    <Spinner />
+  ) : (
     <div className={styles.container}>
-      {lineChartGlobal}
-      {lineChartCountry}
+      <h2>Global Cumulative Cases</h2>
+      <div className={styles.chart}>{lineChartGlobal}</div>
+      <h2>Country Cumulative Cases</h2>
+      <div className={styles.chart}>{lineChartCountry}</div>
     </div>
   );
 };

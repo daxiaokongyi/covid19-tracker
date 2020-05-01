@@ -1,19 +1,25 @@
 .container {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   padding: 1rem;
   border-radius: 0.5rem;
   margin: 1rem 0;
-  background-color: cornflowerblue;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.9);
 }
 
-.countryRank {
+.countryInfo {
   display: flex;
   justify-content: space-evenly;
-  padding: 1rem;
+  padding: 0.3rem;
   flex-direction: row;
+  align-items: center;
+}
+
+img {
+  width: 2rem;
 }
 
 .allBoxes {
@@ -23,21 +29,61 @@
 }
 
 .box {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   padding: 1rem;
   border-radius: 0.5rem;
   text-align: center;
   line-height: 1.5rem;
+  width: 14rem;
 }
 
+.cumulative {
+  margin: 1rem 0;
+}
+
+.newCases {
+  margin: 1rem 0;
+}
 .confirmed {
-  background-color: blue;
+  /* background-color: rgba(77, 5, 232, 0.6); */
+  background-color: rgb(0, 0, 255, 0.1);
+  border: 0.05rem solid blue;
 }
 
 .recovered {
-  background-color: greenyellow;
+  /* background-color: rgba(0, 230, 64, 0.6); */
+  background-color: rgb(0, 128, 0, 0.1);
+  border: 0.05rem solid green;
 }
 
 .deaths {
-  background-color: red;
+  /* background-color: rgba(240, 52, 52, 0.6); */
+  background-color: rgb(255, 0, 0, 0.1);
+  border: 0.05rem solid red;
+}
+
+@media (max-width: 360px) {
+  .container {
+    font-size: 0.5rem;
+  }
+
+  .countryInfo {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  img {
+    width: 1.8rem;
+  }
+
+  .allBoxes {
+    margin: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .box {
+    margin: 0.2rem;
+    line-height: 1rem;
+  }
 }

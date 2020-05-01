@@ -5,8 +5,23 @@
 }
 
 body {
+  /* background-image: url('./utility/backgound.png'); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  background-attachment: fixed;
+  background-color: rgba(0, 0, 0, 0.54);
+}
+
+.container {
   /* background-color: aquamarine; */
   width: 80%;
   margin: auto;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+}
+
+@media (max-width: 360px) {
+  .container {
+    width: 90%;
+  }
 }

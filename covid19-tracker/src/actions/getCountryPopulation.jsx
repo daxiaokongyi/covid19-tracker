@@ -24,7 +24,7 @@ const getCountryPopulation = (country) => async (dispatch) => {
       (customizedPopulation) => customizedPopulation.countrycode === country
     );
 
-    console.log(countrySelected[0].population);
+    // console.log(countrySelected[0].population);
 
     dispatch({
       type: GET_POPULATION,

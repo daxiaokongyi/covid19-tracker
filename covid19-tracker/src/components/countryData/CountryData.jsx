@@ -49,10 +49,10 @@ const CountryData = ({
     <Spinner />
   ) : (
     <div className={styles.container}>
-      <div className={styles.countryRank}>
-        <div>
+      <div className={styles.countryInfo}>
+        <div className={styles.select}>
           {' '}
-          Select Country:{''}
+          Select Country:{' '}
           <select onChange={(e) => onHandleChange(e)}>
             <option value='us'>US</option>
             {countries.map(({ name, iso2 }, i) => (
@@ -64,8 +64,10 @@ const CountryData = ({
         </div>
 
         <div>
-          population:{' '}
-          {population.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+          Current Population:{' '}
+          {population
+            ? population.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+            : `loading ...`}
         </div>
         <div>
           <img
@@ -73,38 +75,46 @@ const CountryData = ({
             alt='flag-img'
           />
         </div>
-        <div>Danger Rank: {dangerRank}</div>
+        <div>Risk Ranking: {dangerRank}</div>
       </div>
       <div className={styles.allBoxes}>
         <div className={[styles.box, styles.confirmed].join(' ')}>
-          <h4>Confirmed</h4>
-          <h2>
-            {' '}
-            <CountUp
-              start={0}
-              end={confirmed}
-              duration={2.5}
-              separator={', '}
-            />
-          </h2>
-          <h4>Confirmed per 10000 people </h4>
-          <h2>{((confirmed / population) * 10000).toFixed(0)}</h2>
-          <h4>New cases</h4>
-          <h2>
-            {' '}
-            <CountUp
-              start={0}
-              end={newConfirmed}
-              duration={2.5}
-              separator={', '}
-            />
-          </h2>
-          <h4>New Cases rate </h4>
-          <h2>{`${((newConfirmed / confirmed) * 100).toFixed(2)}%`}</h2>
+          <div className={styles.cumulative}>
+            <p>Confirmed</p>
+            <h4>
+              {' '}
+              <CountUp
+                start={0}
+                end={confirmed}
+                duration={2.5}
+                separator={', '}
+              />
+            </h4>
+            <span>
+              About {((confirmed / population) * 10000).toFixed(0)} per 10, 000
+              people
+            </span>
+          </div>
+          <div className={styles.newCases}>
+            <p>New Cases Today</p>
+            <h4>
+              {' '}
+              <CountUp
+                start={0}
+                end={newConfirmed}
+                duration={2.5}
+                separator={', '}
+              />
+            </h4>
+            <p>New Cases Rate </p>
+            <h4>{`${((newConfirmed / (confirmed - newConfirmed)) * 100).toFixed(
+              2
+            )}%`}</h4>
+          </div>
         </div>
         <div className={[styles.box, styles.recovered].join(' ')}>
-          <h4>Recovered</h4>
-          <h2>
+          <p>Recovered</p>
+          <h4>
             {' '}
             <CountUp
               start={0}
@@ -112,30 +122,40 @@ const CountryData = ({
               duration={2.5}
               separator={', '}
             />
-          </h2>
-          <h4>Recovered per 10000 people </h4>
-          <h2>{((recovered / population) * 10000).toFixed(0)}</h2>
+          </h4>
+          <span>
+            About {((recovered / population) * 10000).toFixed(0)} per 10, 000
+            people
+          </span>
         </div>
         <div className={[styles.box, styles.deaths].join(' ')}>
-          <h4>Deaths</h4>
-          <h2>
-            {' '}
-            <CountUp start={0} end={deaths} duration={2.5} separator={', '} />
-          </h2>
-          <h4>Deaths per 10000 people </h4>
-          <h2>{((deaths / population) * 10000).toFixed(0)}</h2>
-          <h4>New cases</h4>
-          <h2>
-            {' '}
-            <CountUp
-              start={0}
-              end={newDeaths}
-              duration={2.5}
-              separator={', '}
-            />
-          </h2>
-          <h4>new cases rate</h4>
-          <h2>{`${((newDeaths / deaths) * 100).toFixed(2)}%`}</h2>
+          <div className={styles.cumulative}>
+            <p>Deaths</p>
+            <h4>
+              {' '}
+              <CountUp start={0} end={deaths} duration={2.5} separator={', '} />
+            </h4>
+            <span>
+              About {((deaths / population) * 10000).toFixed(0)} per 10, 000
+              people
+            </span>
+          </div>
+          <div className={styles.newCases}>
+            <p>New Cases Today</p>
+            <h4>
+              {' '}
+              <CountUp
+                start={0}
+                end={newDeaths}
+                duration={2.5}
+                separator={', '}
+              />
+            </h4>
+            <p>new cases rate</p>
+            <h4>{`${((newDeaths / (deaths - newDeaths)) * 100).toFixed(
+              2
+            )}%`}</h4>
+          </div>
         </div>
       </div>
     </div>
