@@ -62,7 +62,6 @@ const CountryData = ({
             ))}
           </select>
         </div>
-
         <div>
           Current Population:{' '}
           {population
