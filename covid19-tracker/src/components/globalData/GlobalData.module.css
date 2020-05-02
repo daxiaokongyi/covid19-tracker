@@ -4,7 +4,7 @@
   /* border: 0.3rem solid #ff6701; */
   border-radius: 0.5rem;
   /* padding: 1rem; */
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.95);
   color: rgba(0, 0, 0, 0.8);
   opacity: 0.9;
 }
