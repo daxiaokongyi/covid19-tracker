@@ -24,4 +24,13 @@ body {
   .container {
     width: 90%;
   }
+
+  body {
+    background-image: url('./utility/backgound.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-attachment: fixed;
+    /* background-color: rgba(190, 98, 98, 0.904); */
+  }
 }

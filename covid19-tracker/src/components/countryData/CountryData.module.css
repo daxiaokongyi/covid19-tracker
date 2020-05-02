@@ -30,25 +30,27 @@ img {
 
 .allBoxes {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   margin: 1.6rem;
 }
 
 .box {
   /* border: 1px solid blue; */
   font-size: 0.9rem;
-  padding: 0.3rem 0;
   border-radius: 0.5rem;
   text-align: center;
   line-height: 1.7rem;
+  padding: 0.3rem;
 }
 
 .cumulative {
   margin: 1rem 0;
+  line-height: 1.2;
 }
 
 .newCases {
   margin: 1rem 0;
+  line-height: 1.2;
 }
 
 .confirmed {

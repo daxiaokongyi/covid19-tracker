@@ -7,11 +7,6 @@
   text-align: center;
 } */
 
-h2 {
-  text-align: center;
-  color: rgba(255, 255, 255, 1);
-}
-
 .chart {
   margin: 1rem 0;
   /* border: solid 1px red; */
@@ -26,6 +21,10 @@ h2 {
   flex-direction: row;
 }
 
+h2 {
+  text-align: center;
+  color: aliceblue;
+}
 @media (max-width: 360px) {
   h2 {
     font-size: 0.5rem;

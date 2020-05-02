@@ -32,52 +32,67 @@ const GlobalData = ({
         <div className={[styles.boxContent, styles.cumulative].join(' ')}>
           <i className='fas fa-globe-americas'> Global Today</i>
           <div>
-            <h4>
+            <p>
               Confirmed:{' '}
-              <CountUp
-                start={0}
-                end={confirmed}
-                duration={2.5}
-                separator={', '}
-              />
-            </h4>
-            <h4>
+              <strong>
+                <CountUp
+                  start={0}
+                  end={confirmed}
+                  duration={2.5}
+                  separator={', '}
+                />
+              </strong>
+            </p>
+            <p>
               Recovered:{' '}
-              <CountUp
-                start={0}
-                end={recovered}
-                duration={2.5}
-                separator={', '}
-              />
-            </h4>
-            <h4>
+              <strong>
+                <CountUp
+                  start={0}
+                  end={recovered}
+                  duration={2.5}
+                  separator={', '}
+                />
+              </strong>
+            </p>
+            <p>
               Deaths:{' '}
-              <CountUp start={0} end={deaths} duration={2.5} separator={', '} />
-            </h4>
+              <strong>
+                <CountUp
+                  start={0}
+                  end={deaths}
+                  duration={2.5}
+                  separator={', '}
+                />
+              </strong>
+            </p>
           </div>
         </div>
 
         <div className={[styles.boxContent, styles.newCases].join(' ')}>
-          <i class='far fa-calendar-plus'> New Cases Today</i>
+          <i className='fas fa-calendar-plus'> New Cases Today</i>
           <div>
-            <h4>
+            <p>
               Confirmed:{' '}
-              <CountUp
-                start={0}
-                end={newConfirmed}
-                duration={2.5}
-                separator={', '}
-              />
-            </h4>
-            <h4>
+              <strong>
+                <CountUp
+                  start={0}
+                  end={newConfirmed}
+                  duration={2.5}
+                  separator={', '}
+                />
+              </strong>
+            </p>
+            <p>
               Deaths:{' '}
-              <CountUp
-                start={0}
-                end={newDeaths}
-                duration={2.5}
-                separator={', '}
-              />
-            </h4>
+              <strong>
+                <CountUp
+                  start={0}
+                  end={newDeaths}
+                  duration={2.5}
+                  separator={', '}
+                />
+              </strong>
+            </p>
           </div>
         </div>
       </div>
