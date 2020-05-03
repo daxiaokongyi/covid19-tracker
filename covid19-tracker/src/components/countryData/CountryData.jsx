@@ -129,7 +129,7 @@ const CountryData = ({
             </strong>
           </div>
           <div className={styles.newCasesRate}>
-            <p>New Cases Rate </p>
+            <p>{t('New Cases Rate')} </p>
             <strong>{`${(
               (newConfirmed / (confirmed - newConfirmed)) *
               100
@@ -168,7 +168,8 @@ const CountryData = ({
             <p>
               {t('About')}{' '}
               <strong>
-                {((deaths / population) * 1000000).toFixed(0)} per 1M people
+                {((deaths / population) * 1000000).toFixed(0)}{' '}
+                {t('per 1M people')}
               </strong>
             </p>
           </div>
