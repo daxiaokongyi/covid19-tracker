@@ -6,6 +6,7 @@ import styles from './Chart.module.css';
 import { Line, defaults } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
 import Spinner from '../spinner/Spinner';
+import { useTranslation } from 'react-i18next';
 
 defaults.global.maintainAspectRatio = false;
 
@@ -15,6 +16,8 @@ const Chart = ({
   globalTimeline,
   countryTimeline,
 }) => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     const Timeline = async () => {
       // console.log('triggered');
@@ -126,9 +129,9 @@ const Chart = ({
     <Spinner />
   ) : (
     <div className={styles.container}>
-      <h2>Global Cumulative Cases</h2>
+      <h2>{t('Global Cumulative Cases')}</h2>
       <div className={styles.chart}>{lineChartGlobal}</div>
-      <h2>Country Cumulative Cases</h2>
+      <h2>{t('Country Cumulative Cases')}</h2>
       <div className={styles.chart}>{lineChartCountry}</div>
     </div>
   );
@@ -144,6 +147,7 @@ Chart.propTypes = {
 const mapStateToProps = (state) => ({
   globalDaily: state.globalDaily,
   countryDaily: state.countryDaily,
+  language: state.language,
 });
 
 export default connect(mapStateToProps, {

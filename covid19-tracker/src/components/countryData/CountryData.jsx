@@ -10,6 +10,8 @@ import PropTypes from 'prop-types';
 import CountUp from 'react-countup';
 import Spinner from '../spinner/Spinner';
 
+import { useTranslation } from 'react-i18next';
+
 const CountryData = ({
   countryData: {
     confirmed,
@@ -22,11 +24,14 @@ const CountryData = ({
     country,
     population,
   },
+  language: { lang },
   countryCumulative,
   countryTimeline,
   clearCountryTimeline,
   getCountryPopulation,
 }) => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     const getCountryData = async () => {
       countryCumulative(country);
@@ -52,7 +57,7 @@ const CountryData = ({
       <div className={styles.countryInfo}>
         <div className={styles.select}>
           {' '}
-          Select Country:{' '}
+          {t('Select Country')}:{' '}
           <select onChange={(e) => onHandleChange(e)}>
             <option value={['US', 'US']}>US</option>
             {countries.map(({ name, iso2 }, i) => (
@@ -64,7 +69,7 @@ const CountryData = ({
         </div>
         <div>
           <p>
-            Current Population:{' '}
+            {t('Current Population')}:{' '}
             {/* <strong>
               {population
                 ? population
@@ -84,13 +89,13 @@ const CountryData = ({
           />
         </div>
         <div>
-          Risk Ranking: <strong>{dangerRank}</strong>
+          {t('Risk Ranking')}: <strong>{dangerRank}</strong>
         </div>
       </div>
       <div className={styles.allBoxes}>
         <div className={[styles.box, styles.confirmed].join(' ')}>
           <div className={styles.cumulative}>
-            <p>Confirmed</p>
+            <p>{t('Confirmed')}</p>
             <strong>
               {' '}
               <CountUp
@@ -101,18 +106,18 @@ const CountryData = ({
               />
             </strong>
             <p>
-              About{' '}
+              {t('About')}{' '}
               {/* <strong>
                 {population
                   ? ((confirmed / population) * 1000000).toFixed(0)
                   : 'loading ...'}
               </strong>{' '} */}
               <strong>{((confirmed / population) * 1000000).toFixed(0)}</strong>{' '}
-              per 1M people
+              {t('per 1M people')}
             </p>
           </div>
           <div className={styles.newCases}>
-            <p>New Cases Today</p>
+            <p>{t('New Cases Today')}</p>
             <strong>
               {' '}
               <CountUp
@@ -132,7 +137,7 @@ const CountryData = ({
           </div>
         </div>
         <div className={[styles.box, styles.recovered].join(' ')}>
-          <p>Recovered</p>
+          <p>{t('Recovered')}</p>
           <strong>
             {' '}
             <CountUp
@@ -143,32 +148,32 @@ const CountryData = ({
             />
           </strong>
           <p>
-            About{' '}
+            {t('About')}{' '}
             {/* <strong>
               {population
                 ? ((recovered / population) * 1000000).toFixed(0)
                 : 'loading ...'}
             </strong>{' '} */}
             <strong>{((recovered / population) * 1000000).toFixed(0)}</strong>{' '}
-            per 1M people
+            {t('per 1M people')}
           </p>
         </div>
         <div className={[styles.box, styles.deaths].join(' ')}>
           <div className={styles.cumulative}>
-            <p>Deaths</p>
+            <p>{t('Deaths')}</p>
             <strong>
               {' '}
               <CountUp start={0} end={deaths} duration={2.5} separator={', '} />
             </strong>
             <p>
-              About{' '}
+              {t('About')}{' '}
               <strong>
                 {((deaths / population) * 1000000).toFixed(0)} per 1M people
               </strong>
             </p>
           </div>
           <div className={styles.newCases}>
-            <p>New Cases Today</p>
+            <p>{t('New Cases Today')}</p>
             <strong>
               {' '}
               <CountUp
@@ -180,7 +185,7 @@ const CountryData = ({
             </strong>
           </div>
           <div className={styles.newCasesRate}>
-            <p>New Cases Rate</p>
+            <p>{t('New Cases Rate')}</p>
             <strong>{`${((newDeaths / (deaths - newDeaths)) * 100).toFixed(
               2
             )}%`}</strong>
@@ -197,10 +202,12 @@ CountryData.propTypes = {
   clearCountryTimeline: PropTypes.func.isRequired,
   getCountryPopulation: PropTypes.func.isRequired,
   CountryData: PropTypes.object.isRequired,
+  language: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   countryData: state.countryData,
+  language: state.language,
 });
 
 export default connect(mapStateToProps, {

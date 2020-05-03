@@ -1,6 +1,12 @@
 import React from 'react';
 import styles from './App.module.css';
-import { GlobalData, CountryData, Chart, Footer } from './components/index';
+import {
+  GlobalData,
+  CountryData,
+  Chart,
+  Footer,
+  SwitchLanguage,
+} from './components/index';
 import store from './store';
 import { Provider } from 'react-redux';
 
@@ -9,6 +15,7 @@ const App = () => {
     <Provider store={store}>
       <div className={styles.layer}>
         <div className={styles.container}>
+          <SwitchLanguage />
           <GlobalData />
           <CountryData />
           <Chart />

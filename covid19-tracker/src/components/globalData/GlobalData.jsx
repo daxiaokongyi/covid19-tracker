@@ -5,11 +5,15 @@ import globalCumulative from '../../actions/globalCumulative';
 import PropTypes from 'prop-types';
 import CountUp from 'react-countup';
 import Spinner from '../spinner/Spinner';
+import { useTranslation } from 'react-i18next';
 
 const GlobalData = ({
   globalData: { confirmed, recovered, deaths, newConfirmed, newDeaths },
+  language: { lang },
   globalCumulative,
 }) => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     const getGlobalData = async () => {
       globalCumulative();
@@ -22,18 +26,18 @@ const GlobalData = ({
   ) : (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h1>COVID-19 GLOBAL TRACKER</h1>
+        <h1>COVID-19 {t('GLOBAL TRACKER')}</h1>
         <div className={styles.update}>
-          Lastest Updates: {new Date().toDateString()}
+          {t('Lastest Updates')}: {new Date().toDateString()}
         </div>
       </div>
 
       <div className={styles.global}>
         <div className={[styles.boxContent, styles.cumulative].join(' ')}>
-          <i className='fas fa-globe-americas'> Global Today</i>
+          <i className='fas fa-globe-americas'> {t('Global Today')}</i>
           <div>
             <p>
-              Confirmed:{' '}
+              {t('Confirmed')}:{' '}
               <strong>
                 <CountUp
                   start={0}
@@ -44,7 +48,7 @@ const GlobalData = ({
               </strong>
             </p>
             <p>
-              Recovered:{' '}
+              {t('Recovered')}:{' '}
               <strong>
                 <CountUp
                   start={0}
@@ -55,7 +59,7 @@ const GlobalData = ({
               </strong>
             </p>
             <p>
-              Deaths:{' '}
+              {t('Deaths')}:{' '}
               <strong>
                 <CountUp
                   start={0}
@@ -69,10 +73,10 @@ const GlobalData = ({
         </div>
 
         <div className={[styles.boxContent, styles.newCases].join(' ')}>
-          <i className='fas fa-calendar-plus'> New Cases Today</i>
+          <i className='fas fa-calendar-plus'> {t('New Cases Today')}</i>
           <div>
             <p>
-              Confirmed:{' '}
+              {t('Confirmed')}:{' '}
               <strong>
                 <CountUp
                   start={0}
@@ -83,7 +87,7 @@ const GlobalData = ({
               </strong>
             </p>
             <p>
-              Deaths:{' '}
+              {t('Deaths')}:{' '}
               <strong>
                 <CountUp
                   start={0}
@@ -103,10 +107,12 @@ const GlobalData = ({
 GlobalData.propTypes = {
   globalCumulative: PropTypes.func.isRequired,
   GlobalData: PropTypes.object.isRequired,
+  language: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   globalData: state.globalData,
+  language: state.language,
 });
 
 export default connect(mapStateToProps, { globalCumulative })(GlobalData);
