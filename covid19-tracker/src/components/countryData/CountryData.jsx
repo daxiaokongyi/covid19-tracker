@@ -167,10 +167,8 @@ const CountryData = ({
             </strong>
             <p>
               {t('About')}{' '}
-              <strong>
-                {((deaths / population) * 1000000).toFixed(0)}{' '}
-                {t('per 1M people')}
-              </strong>
+              <strong>{((deaths / population) * 1000000).toFixed(0)}</strong>{' '}
+              {t('per 1M people')}
             </p>
           </div>
           <div className={styles.newCases}>
