@@ -25,6 +25,7 @@ h2 {
   text-align: center;
   color: aliceblue;
 }
+
 @media (max-width: 360px) {
   h2 {
     font-size: 0.5rem;

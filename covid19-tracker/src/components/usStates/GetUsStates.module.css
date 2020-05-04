@@ -1,0 +1,113 @@
+.container {
+  background-color: rgb(255, 255, 255, 0.95);
+  color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  border-radius: 0.5rem;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.individualStateOdd {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding: 0.2rem;
+  background-color: #fff;
+}
+
+.individualStateEven {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding: 0.2rem;
+  background-color: #efefef;
+}
+
+.individualStateEven:last-child {
+  border-radius: 0.5rem;
+}
+
+/* title */
+.title {
+  margin-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  font-size: 1.5rem;
+}
+
+/* State Header */
+.headerState {
+  background-color: rgba(240, 134, 14, 0.2);
+}
+
+.headerTotalTest {
+  background-color: rgb(0, 0, 0, 0.2);
+}
+
+.headerPositive {
+  background-color: rgb(0, 0, 255, 0.2);
+}
+
+.headerRecovered {
+  background-color: rgb(0, 128, 0, 0.2);
+}
+
+.headerDeath {
+  background-color: rgb(255, 0, 0, 0.2);
+}
+
+/* Individual state */
+.state {
+  color: orange;
+}
+
+.totalTest {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.positive {
+  color: rgb(0, 0, 255);
+}
+
+.recovered {
+  color: rgb(0, 128, 0);
+}
+
+.death {
+  color: rgb(255, 0, 0);
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 0.8rem;
+  }
+
+  .header {
+    font-size: 0.3rem;
+  }
+  .individualStateOdd {
+    font-size: 0.3rem;
+  }
+  .individualStateEven {
+    font-size: 0.3rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .title {
+    font-size: 0.8rem;
+  }
+
+  .header {
+    font-size: 0.3rem;
+  }
+  .individualStateOdd {
+    font-size: 0.3rem;
+  }
+  .individualStateEven {
+    font-size: 0.3rem;
+  }
+}
+
+@media (min-width: 720.1px) {
+}

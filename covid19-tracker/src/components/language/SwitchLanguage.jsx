@@ -20,6 +20,7 @@ const SwitchLanguage = ({ getLanguage }) => {
         <button onClick={() => onClickChange('en')}>English</button>
         <button onClick={() => onClickChange('cn')}>中文</button>
         <button onClick={() => onClickChange('jp')}>日本語</button>
+        <button onClick={() => onClickChange('kr')}>한국어</button>
       </div>
       {/* <p>{t('thanks.1')}</p>
       <p>{t('why.1')}</p> */}

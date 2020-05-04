@@ -17,6 +17,8 @@ export const urlForSelection = `https://covid19.mathdro.id/api/countries`;
 
 export const urlPopulation = `${proxy}https://thevirustracker.com/timeline/map-data2.json`;
 
+export const urlStates = `https://covidtracking.com/api/states`;
+
 // export const urlDangerRank = 'https://api.thevirustracker.com/free-api?countryTotal=cn';
 
 // Flags API "<img src="https://www.countryflags.io/be/shiny/64.png">"
