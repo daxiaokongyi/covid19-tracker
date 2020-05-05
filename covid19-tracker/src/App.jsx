@@ -7,6 +7,7 @@ import {
   Footer,
   SwitchLanguage,
   GetUsStates,
+  UsStateChart,
 } from './components/index';
 import store from './store';
 import { Provider } from 'react-redux';
@@ -21,6 +22,7 @@ const App = () => {
           <CountryData />
           <Chart />
           <GetUsStates />
+          <UsStateChart />
           <Footer />
         </div>
       </div>

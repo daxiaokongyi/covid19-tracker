@@ -12,7 +12,8 @@
   "About": "大概",
   "per 1M people": "人在每一百万人中",
   "New Cases Rate": "新增长率",
-  "Global Cumulative Cases": "全球累积病例",
-  "Country Cumulative Cases": "所选国家累积病例",
-  "Cases in the United States": "美国各州病例"
+  "Cumulative Cases Worldwide": "全球累积病例",
+  "Cumulative Cases By Country": "所选国家累积病例",
+  "Cases in the United States": "美国各州病例",
+  "Pie Chart By States": "各州饼状图分布"
 }

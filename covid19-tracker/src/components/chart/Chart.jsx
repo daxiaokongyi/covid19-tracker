@@ -129,9 +129,9 @@ const Chart = ({
     <Spinner />
   ) : (
     <div className={styles.container}>
-      <h2>{t('Global Cumulative Cases')}</h2>
+      <h2>{t('Cumulative Cases Worldwide')}</h2>
       <div className={styles.chart}>{lineChartGlobal}</div>
-      <h2>{t('Country Cumulative Cases')}</h2>
+      <h2>{t('Cumulative Cases By Country')}</h2>
       <div className={styles.chart}>{lineChartCountry}</div>
     </div>
   );

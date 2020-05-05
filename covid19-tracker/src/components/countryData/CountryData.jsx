@@ -42,7 +42,7 @@ const CountryData = ({
 
   const onHandleChange = (e) => {
     // console.log(e.target.value.split(','));
-    // console.log(e.target.value.split(',')[1]);
+    console.log(e.target.value.split(',')[1]);
     getCountryPopulation(e.target.value.split(',')[0]);
     // console.log()
     countryCumulative(e.target.value.split(',')[0]);

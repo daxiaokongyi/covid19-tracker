@@ -9,6 +9,10 @@ const countryTimeline = (country) => async (dispatch) => {
     // console.log(data[country]);
     country = !country ? 'US' : country;
 
+    if (country === 'Korea') {
+      country = 'Korea, South';
+    }
+
     const customizedCountryTimeline = data[country].map(
       ({ confirmed, recovered, deaths, date }) => ({
         confirmed,

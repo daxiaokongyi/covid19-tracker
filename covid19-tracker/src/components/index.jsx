@@ -4,3 +4,4 @@ export { default as Chart } from './chart/Chart';
 export { default as Footer } from './footer/Footer';
 export { default as SwitchLanguage } from './language/SwitchLanguage';
 export { default as GetUsStates } from './usStates/GetUsStates';
+export { default as UsStateChart } from './usStateChart/UsStateChart';
