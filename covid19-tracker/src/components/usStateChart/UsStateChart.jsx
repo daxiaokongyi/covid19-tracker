@@ -54,11 +54,28 @@ const UsStateChart = ({ states }) => {
         // responsive: false,
         options={{
           legend: {
-            // display: false,
+            align: 'center',
             position: 'bottom',
             labels: {
               boxWidth: 5,
               fontSize: 11,
+            },
+          },
+          tooltips: {
+            callbacks: {
+              label: function (tooltipItem, data) {
+                let dataset = data.datasets[tooltipItem.datasetIndex];
+                let meta = dataset._meta[Object.keys(dataset._meta)[0]];
+                let total = meta.total;
+                let currentValue = dataset.data[tooltipItem.index];
+                let percentage = parseFloat(
+                  ((currentValue / total) * 100).toFixed(1)
+                );
+                return currentValue + ' (' + percentage + '%)';
+              },
+              title: function (tooltipItem, data) {
+                return data.labels[tooltipItem[0].index];
+              },
             },
           },
         }}
@@ -70,7 +87,7 @@ const UsStateChart = ({ states }) => {
     <Spinner />
   ) : (
     <div className={styles.container}>
-      <div className={styles.title}>{t('Pie Chart By States')}</div>
+      <div className={styles.title}>{t('Comfirmed Cases By State')}</div>
       <div className={styles.stateChart}>{pieChartState}</div>
     </div>
   );
