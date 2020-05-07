@@ -28,6 +28,14 @@
   border-radius: 0.5rem;
 }
 
+.individualStateOdd:hover {
+  background-color: rgb(255, 165, 0, 0.5);
+}
+
+.individualStateEven:hover {
+  background-color: rgb(255, 165, 0, 0.5);
+}
+
 /* title */
 .title {
   margin-bottom: 0.5rem;
