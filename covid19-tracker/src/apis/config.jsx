@@ -19,6 +19,11 @@ export const urlPopulation = `${proxy}https://thevirustracker.com/timeline/map-d
 
 export const urlStates = `https://covidtracking.com/api/states`;
 
+// export const urlNewCountryTimeline = `https://pomber.github.io/covid19/timeseries.json`;
+
+export const urlStateTimeline =
+  'https://covidtracking.com/api/v1/states/daily.json';
+
 // export const urlDangerRank = 'https://api.thevirustracker.com/free-api?countryTotal=cn';
 
 // Flags API "<img src="https://www.countryflags.io/be/shiny/64.png">"

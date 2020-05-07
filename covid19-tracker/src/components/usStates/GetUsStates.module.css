@@ -24,10 +24,6 @@
   background-color: #efefef;
 }
 
-.header:hover {
-  background-color: coral;
-}
-
 .individualStateEven:last-child {
   border-radius: 0.5rem;
 }
