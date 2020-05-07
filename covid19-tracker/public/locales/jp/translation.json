@@ -11,9 +11,10 @@
   "Risk Ranking": "リスクランキング",
   "About": "約",
   "per 1M people": "100万人あたり",
-  "New Cases Rate": "新しい成長率",
+  "New Cases Rate": "新しい増加率",
   "Cumulative Cases Worldwide": "グローバル累積ケース",
   "Cumulative Cases By Country": "国の累積ケース",
   "Cases in the United States": "米国の州の事件",
-  "Comfirmed Cases By State": "診断された円グラフの州ごとの分布"
+  "Comfirmed Cases By State": "診断された円グラフの州ごとの分布",
+  "New Daily Cases By State": "各州で毎日新しいケース"
 }

@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import styles from './StateDailyNewCases.module.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import getStates from '../../actions/getStates';
 import stateTimeline from '../../actions/stateTimeline';
+import { Bar } from 'react-chartjs-2';
+import Spinner from '../spinner/Spinner';
 
 const StateDailyNewCases = ({
   states,
-  chooseState: { state, allStates },
+  chooseState: { state, customizedStateDaily },
   stateTimeline,
 }) => {
   useEffect(() => {
@@ -16,16 +17,57 @@ const StateDailyNewCases = ({
       stateTimeline(state);
     };
     getStateTimeline();
-  }, [stateTimeline]);
+  }, [stateTimeline, state]);
 
   const onHandleChange = (e) => {
-    getStates(e.target.value);
+    stateTimeline(e.target.value);
     console.log(e.target.value);
   };
 
-  return (
+  const barChartByState = (
+    <Bar
+      data={{
+        labels: customizedStateDaily.map(({ date }) => date).reverse(),
+        datasets: [
+          {
+            data: customizedStateDaily
+              .map(({ positiveIncrease }) => positiveIncrease)
+              .reverse(),
+            label: 'New Confimred Cases',
+            // borderColor: 'blue',
+            backgroundColor: 'rgba(0,0,250,0.65)',
+            hoverBackgroundColor: 'rgba(250,0,0,0.65)',
+          },
+        ],
+      }}
+      options={{
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                callback: function (label, index, labels) {
+                  if (label > 999999) {
+                    return label / 1000000 + ' M';
+                  } else if (label > 1000 && label < 1000000) {
+                    return label / 1000 + ' K';
+                  } else {
+                    return label;
+                  }
+                },
+              },
+            },
+          ],
+        },
+        maintainAspectRatio: false, // Don't maintain w/h ratio
+      }}
+    />
+  );
+
+  return !customizedStateDaily ? (
+    <Spinner />
+  ) : (
     <div className={styles.container}>
-      <div className={styles.title}>Daily New Cases By State</div>
+      <div className={styles.title}> New Daily Cases By State</div>
       <select name='select-state' onChange={(e) => onHandleChange(e)}>
         {states.map(({ state }, i) => (
           <option value={state} key={i}>
@@ -33,6 +75,7 @@ const StateDailyNewCases = ({
           </option>
         ))}
       </select>
+      <div className={styles.barChart}>{barChartByState}</div>
     </div>
   );
 };

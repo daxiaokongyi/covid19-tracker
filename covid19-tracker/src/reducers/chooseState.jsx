@@ -1,7 +1,7 @@
 import { CHOOSE_STATE } from '../actions/types';
 
 const initialState = {
-  state: 'CA',
+  state: 'AK',
   customizedStateDaily: [],
 };
 

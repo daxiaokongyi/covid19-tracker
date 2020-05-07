@@ -9,11 +9,12 @@
   "Select Country": "选择国家",
   "Current Population": "最新人口",
   "Risk Ranking": "严重排名",
-  "About": "大概",
+  "About": "约",
   "per 1M people": "人在每一百万人中",
   "New Cases Rate": "新增长率",
   "Cumulative Cases Worldwide": "全球累积病例",
   "Cumulative Cases By Country": "所选国家累积病例",
   "Cases in the United States": "美国各州病例",
-  "Comfirmed Cases By State": "各州确诊饼状图分布"
+  "Comfirmed Cases By State": "各州确诊饼状图分布",
+  "New Daily Cases By State": "各州每日新增病例"
 }
