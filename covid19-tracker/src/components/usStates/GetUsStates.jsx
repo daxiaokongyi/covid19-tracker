@@ -1,14 +1,23 @@
 import React, { useEffect } from 'react';
 import getStates from '../../actions/getStates';
+import clearCountryTimeline from '../../actions/clearCountryTimeline';
+import clearGlobalTimeline from '../../actions/clearGlobalTimeline';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Spinner from '../spinner/Spinner';
 import styles from './GetUsStates.module.css';
 import { useTranslation } from 'react-i18next';
 
-const GetUsStates = ({ getStates, states }) => {
+const GetUsStates = ({
+  getStates,
+  clearCountryTimeline,
+  clearGlobalTimeline,
+  states,
+}) => {
   useEffect(() => {
     const usStates = async () => {
+      clearCountryTimeline();
+      clearGlobalTimeline();
       getStates();
     };
     usStates();
@@ -91,10 +100,16 @@ const GetUsStates = ({ getStates, states }) => {
 
 GetUsStates.propTypes = {
   getStates: PropTypes.func.isRequired,
+  clearCountryTimeline: PropTypes.func.isRequired,
+  clearGlobalTimeline: PropTypes.func.isRequired,
   states: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   states: state.states,
 });
-export default connect(mapStateToProps, { getStates })(GetUsStates);
+export default connect(mapStateToProps, {
+  getStates,
+  clearCountryTimeline,
+  clearGlobalTimeline,
+})(GetUsStates);

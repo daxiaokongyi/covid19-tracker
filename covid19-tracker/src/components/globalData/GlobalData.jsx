@@ -25,13 +25,6 @@ const GlobalData = ({
     <Spinner />
   ) : (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <h1>COVID-19 {t('GLOBAL TRACKER')}</h1>
-        <div className={styles.update}>
-          {t('Lastest Updates')}: {new Date().toDateString()}
-        </div>
-      </div>
-
       <div className={styles.global}>
         <div className={[styles.boxContent, styles.cumulative].join(' ')}>
           <i className='fas fa-globe-americas'> {t('Global Today')}</i>

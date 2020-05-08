@@ -1,0 +1,45 @@
+.header {
+  line-height: 1.8rem;
+  text-align: center;
+  margin: 0.3rem 0;
+  border-radius: 0.5rem;
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 1rem;
+  text-align: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.button {
+  text-decoration: none;
+  padding: 0 0.4rem;
+}
+
+.button:hover {
+  color: orange;
+}
+
+/* responsive  */
+@media (max-width: 360px) {
+  .header {
+    font-size: 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 720px) {
+  .header {
+    font-size: 0.55rem;
+  }
+}
+
+@media (min-width: 720.1px) {
+  .header {
+    font-size: 0.68rem;
+  }
+}

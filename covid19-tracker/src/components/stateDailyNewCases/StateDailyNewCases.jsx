@@ -5,12 +5,15 @@ import PropTypes from 'prop-types';
 import stateTimeline from '../../actions/stateTimeline';
 import { Bar } from 'react-chartjs-2';
 import Spinner from '../spinner/Spinner';
+import { useTranslation } from 'react-i18next';
 
 const StateDailyNewCases = ({
   states,
   chooseState: { state, customizedStateDaily },
   stateTimeline,
 }) => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     const getStateTimeline = async () => {
       //   console.log(typeof state);
@@ -67,7 +70,7 @@ const StateDailyNewCases = ({
     <Spinner />
   ) : (
     <div className={styles.container}>
-      <div className={styles.title}> New Daily Cases By State</div>
+      <div className={styles.title}> {t('New Daily Cases By State')}</div>
       <select name='select-state' onChange={(e) => onHandleChange(e)}>
         {states.map(({ state }, i) => (
           <option value={state} key={i}>
