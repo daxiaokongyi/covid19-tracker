@@ -21,7 +21,7 @@ const GetUsStates = ({
       getStates();
     };
     usStates();
-  }, [getStates]);
+  }, [getStates, clearCountryTimeline, clearGlobalTimeline]);
 
   // console.log(states);
 
