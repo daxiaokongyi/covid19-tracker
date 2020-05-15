@@ -4,7 +4,8 @@ const proxy = 'https://cors-anywhere.herokuapp.com/';
 export const urlCountry = `https://api.thevirustracker.com/free-api?countryTotal`;
 
 // export const urlGlobal = `${proxy}https://api.thevirustracker.com/free-api?global=stats`;
-export const urlGlobal = `https://api.thevirustracker.com/free-api?global=stats`;
+// export const urlGlobal = `https://api.thevirustracker.com/free-api?global=stats`;
+export const urlGlobal = 'https://covid-api.com/api/reports/total';
 
 // export const urlDailyCountry = `${proxy}https://pomber.github.io/covid19/timeseries.json`;
 export const urlDailyCountry = `https://pomber.github.io/covid19/timeseries.json`;

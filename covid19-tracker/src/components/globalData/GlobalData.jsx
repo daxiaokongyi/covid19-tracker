@@ -8,7 +8,14 @@ import Spinner from '../spinner/Spinner';
 import { useTranslation } from 'react-i18next';
 
 const GlobalData = ({
-  globalData: { confirmed, recovered, deaths, newConfirmed, newDeaths },
+  globalData: {
+    confirmed,
+    recovered,
+    deaths,
+    newConfirmed,
+    newRecovered,
+    newDeaths,
+  },
   language: { lang },
   globalCumulative,
 }) => {
@@ -34,7 +41,9 @@ const GlobalData = ({
               <strong>
                 <CountUp
                   start={0}
+                  // API ERROR
                   end={confirmed}
+                  // end={newConfirmed}
                   duration={2.5}
                   separator={', '}
                 />
@@ -56,7 +65,9 @@ const GlobalData = ({
               <strong>
                 <CountUp
                   start={0}
+                  // API ERROR
                   end={deaths}
+                  // end={newDeaths}
                   duration={2.5}
                   separator={', '}
                 />
@@ -73,7 +84,22 @@ const GlobalData = ({
               <strong>
                 <CountUp
                   start={0}
+                  // API ERROR
                   end={newConfirmed}
+                  // end={confirmed}
+                  duration={2.5}
+                  separator={', '}
+                />
+              </strong>
+            </p>
+            <p>
+              {t('Recovered')}:{' '}
+              <strong>
+                <CountUp
+                  start={0}
+                  // API ERROR
+                  end={newRecovered}
+                  // end={recovered}
                   duration={2.5}
                   separator={', '}
                 />
@@ -84,7 +110,9 @@ const GlobalData = ({
               <strong>
                 <CountUp
                   start={0}
+                  // API ERROR
                   end={newDeaths}
+                  // end={deaths}
                   duration={2.5}
                   separator={', '}
                 />
