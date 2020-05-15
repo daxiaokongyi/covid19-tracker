@@ -21,7 +21,7 @@ const GlobalData = ({
     getGlobalData();
   }, [globalCumulative]);
 
-  return !confirmed ? (
+  return !confirmed && !newConfirmed ? (
     <Spinner />
   ) : (
     <div className={styles.container}>

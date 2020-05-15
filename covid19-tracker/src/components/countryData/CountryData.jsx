@@ -50,7 +50,7 @@ const CountryData = ({
     countryTimeline(e.target.value.split(',')[1]);
   };
 
-  return !confirmed ? (
+  return !confirmed && !newConfirmed ? (
     <Spinner />
   ) : (
     <div className={styles.container}>
