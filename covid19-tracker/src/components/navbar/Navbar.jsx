@@ -14,10 +14,10 @@ const Navbar = () => {
       <div>COVID-19 {t('GLOBAL TRACKER')}</div>
       <div className={styles.buttons}>
         <Link to='/' className={styles.button}>
-          World
+          {t('World')}
         </Link>
         <Link to='/us' className={styles.button}>
-          United States
+          {t('United States')}
         </Link>
       </div>
     </div>

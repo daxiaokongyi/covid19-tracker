@@ -40,13 +40,13 @@ const Chart = ({
             {
               data: globalDaily.map(({ confirmed }) => confirmed),
               label: 'Confimred',
-              borderColor: 'blue',
+              borderColor: 'rgb(0, 0, 255, 0.5)',
               fill: true,
             },
             {
               data: globalDaily.map(({ deaths }) => deaths),
               label: 'Deaths',
-              borderColor: 'red',
+              borderColor: 'rgb(255, 0, 0, 0.5)',
               fill: true,
             },
           ],
@@ -85,19 +85,19 @@ const Chart = ({
             {
               data: countryDaily.map(({ confirmed }) => confirmed),
               label: 'Confimred',
-              borderColor: 'blue',
+              borderColor: 'rgb(0, 0, 255, 0.5)',
               fill: true,
             },
             {
               data: countryDaily.map(({ recovered }) => recovered),
               label: 'Recovered',
-              borderColor: 'green',
+              borderColor: 'rgb(0, 128, 0, 0.5)',
               fill: true,
             },
             {
               data: countryDaily.map(({ deaths }) => deaths),
               label: 'Deaths',
-              borderColor: 'red',
+              borderColor: 'rgb(255, 0, 0, 0.5)',
               fill: true,
             },
           ],

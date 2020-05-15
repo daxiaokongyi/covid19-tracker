@@ -18,7 +18,8 @@ const SwitchLanguage = ({ getLanguage }) => {
     <div>
       <div className={styles.container}>
         <button onClick={() => onClickChange('en')}>English</button>
-        <button onClick={() => onClickChange('cn')}>中文</button>
+        <button onClick={() => onClickChange('sc')}>简体</button>
+        <button onClick={() => onClickChange('tc')}>繁體</button>
         <button onClick={() => onClickChange('jp')}>日本語</button>
         <button onClick={() => onClickChange('kr')}>한국어</button>
       </div>

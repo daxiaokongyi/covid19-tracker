@@ -38,8 +38,8 @@ const StateDailyNewCases = ({
               .reverse(),
             label: 'New Confimred Cases',
             // borderColor: 'blue',
-            backgroundColor: 'rgba(0,0,250,0.65)',
-            hoverBackgroundColor: 'rgba(250,0,0,0.65)',
+            backgroundColor: 'rgba(0, 0, 255, 0.5)',
+            hoverBackgroundColor: 'rgba(255,0,0,0.5)',
           },
         ],
       }}
