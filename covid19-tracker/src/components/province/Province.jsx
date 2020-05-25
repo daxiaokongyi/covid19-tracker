@@ -60,12 +60,26 @@ const Province = ({ provinces, getProvince }) => {
               i % 2 ? (
                 <div className={styles.individualCityEven}>
                   <div className={styles.nameCity}>{each.name}</div>
-                  <div className={styles.confirmedCity}>{each.confirmed}</div>
-                  <div className={styles.deathsCity}>{each.deaths}</div>
-                  <div className={styles.newConfirmedCity}>
-                    {each.confirmed_diff}
+                  <div className={styles.confirmedCity}>
+                    {each.confirmed
+                      .toString()
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
                   </div>
-                  <div className={styles.newDeathCity}>{each.deaths_diff}</div>
+                  <div className={styles.deathsCity}>
+                    {each.deaths
+                      .toString()
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                  </div>
+                  <div className={styles.newConfirmedCity}>
+                    {each.confirmed_diff
+                      .toString()
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                  </div>
+                  <div className={styles.newDeathCity}>
+                    {each.deaths_diff
+                      .toString()
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                  </div>
                 </div>
               ) : (
                 <div className={styles.individualCityOdd}>
