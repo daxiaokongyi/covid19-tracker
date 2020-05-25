@@ -4,6 +4,8 @@ import countryCumulative from '../../actions/countryCumulative';
 import countryTimeline from '../../actions/countryTimeline';
 import clearCountryTimeline from '../../actions/clearCountryTimeline';
 import getCountryPopulation from '../../actions/getCountryPopulation';
+import getProvince from '../../actions/getProvince';
+import clearProvince from '../../actions/clearProvince';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -29,6 +31,8 @@ const CountryData = ({
   countryTimeline,
   clearCountryTimeline,
   getCountryPopulation,
+  getProvince,
+  clearProvince,
 }) => {
   const { t } = useTranslation();
 
@@ -41,6 +45,7 @@ const CountryData = ({
   }, [countryCumulative, getCountryPopulation, country]);
 
   const onHandleChange = (e) => {
+    // console.log(e.target.value);
     // console.log(e.target.value.split(','));
     // console.log(e.target.value.split(',')[1]);
     getCountryPopulation(e.target.value.split(',')[0]);
@@ -48,6 +53,8 @@ const CountryData = ({
     countryCumulative(e.target.value.split(',')[0]);
     clearCountryTimeline();
     countryTimeline(e.target.value.split(',')[1]);
+    clearProvince();
+    getProvince(e.target.value.split(',')[1]);
   };
 
   return !confirmed && !newConfirmed ? (
@@ -202,6 +209,7 @@ CountryData.propTypes = {
   getCountryPopulation: PropTypes.func.isRequired,
   CountryData: PropTypes.object.isRequired,
   language: PropTypes.string.isRequired,
+  clearProvince: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -214,4 +222,6 @@ export default connect(mapStateToProps, {
   countryTimeline,
   clearCountryTimeline,
   getCountryPopulation,
+  getProvince,
+  clearProvince,
 })(CountryData);

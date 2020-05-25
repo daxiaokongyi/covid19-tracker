@@ -10,6 +10,7 @@ import {
   UsStateChart,
   StateDailyNewCases,
   Navbar,
+  Province,
 } from './components/index';
 import store from './store';
 import { Provider } from 'react-redux';
@@ -33,6 +34,7 @@ const App = () => {
                 <GetUsStates />
                 <UsStateChart />
                 <StateDailyNewCases />
+                <Province />
               </Route>
             </Switch>
             <Footer />

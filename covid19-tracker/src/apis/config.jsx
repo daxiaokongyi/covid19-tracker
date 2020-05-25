@@ -28,3 +28,8 @@ export const urlStateTimeline =
 // export const urlDangerRank = 'https://api.thevirustracker.com/free-api?countryTotal=cn';
 
 // Flags API "<img src="https://www.countryflags.io/be/shiny/64.png">"
+
+// Prediction
+export const urlCountryPrediction = `https://covid19-api.org/api/prediction/us`;
+// Province
+export const urlProvince = `https://covid-api.com/api/reports`;

@@ -6,6 +6,7 @@ import countryDaily from './countryDaily';
 import language from './language';
 import states from './states';
 import chooseState from './chooseState';
+import provinces from './provinces';
 
 export default combineReducers({
   globalData,
@@ -15,4 +16,5 @@ export default combineReducers({
   language,
   states,
   chooseState,
+  provinces,
 });

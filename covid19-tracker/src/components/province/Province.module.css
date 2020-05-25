@@ -1,0 +1,132 @@
+.container {
+  /* border: 1px solid blue; */
+  text-align: center;
+  background-color: rgb(255, 255, 255, 0.95);
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+/* City Header */
+.city {
+  background-color: rgba(240, 134, 14, 0.2);
+}
+
+.confirmed {
+  background-color: rgb(0, 0, 0, 0.2);
+}
+
+.death {
+  background-color: rgb(0, 0, 255, 0.2);
+}
+
+.newConfirmed {
+  background-color: rgb(0, 128, 0, 0.2);
+}
+
+.newDeath {
+  background-color: rgb(255, 0, 0, 0.2);
+}
+
+/* Set City Row */
+
+.individualCityOdd:hover {
+  background-color: rgb(255, 165, 0, 0.5);
+}
+
+.individualCityEven:hover {
+  background-color: rgb(255, 165, 0, 0.5);
+}
+
+.individualCity {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.individualCityOdd {
+  background-color: #efefef;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding: 0.2rem;
+}
+
+.individualCityEven {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding: 0.2rem;
+}
+
+/* title */
+.title {
+  margin-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  font-size: 1.5rem;
+}
+
+/* Individual City */
+.nameCity {
+  color: orange;
+}
+
+.confirmedCity {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.deathsCity {
+  color: rgb(0, 0, 255);
+}
+
+.newConfirmedCity {
+  color: rgb(0, 128, 0);
+}
+
+.newDeathCity {
+  color: rgb(255, 0, 0);
+}
+
+/* Select */
+select {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 0.8rem;
+  }
+
+  .header {
+    font-size: 0.3rem;
+  }
+  .individualCityOdd {
+    font-size: 0.3rem;
+  }
+  .individualCityEven {
+    font-size: 0.3rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .title {
+    font-size: 0.8rem;
+  }
+
+  .header {
+    font-size: 0.3rem;
+  }
+  .individualCityOdd {
+    font-size: 0.3rem;
+  }
+  .individualCityEven {
+    font-size: 0.3rem;
+  }
+}
+
+@media (min-width: 720.1px) {
+}

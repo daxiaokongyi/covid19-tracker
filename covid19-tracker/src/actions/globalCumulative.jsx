@@ -34,7 +34,7 @@ const globalCumulative = () => async (dispatch) => {
     const {
       data: { data },
     } = await axios.get(urlGlobal);
-    console.log(data);
+    // console.log(data);
 
     const customizedGlobalData = {
       confirmed: data.confirmed,
@@ -45,7 +45,7 @@ const globalCumulative = () => async (dispatch) => {
       newDeaths: data.deaths_diff,
     };
 
-    console.log(customizedGlobalData);
+    // console.log(customizedGlobalData);
 
     dispatch({
       type: GLOBAL_CUMULATIVE,
